@@ -8,7 +8,7 @@ from app.services.elasticsearch import (
     wait_for_elasticsearch,
 )
 from app.services.minio_api import init_minio_bucket
-from app.routers import current, children, parent
+from app.api import api_router
 
 es = get_es_instance()
 
@@ -27,6 +27,4 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-app.include_router(current.router)
-app.include_router(children.router)
-app.include_router(parent.router)
+app.include_router(api_router, prefix="/api/v1")

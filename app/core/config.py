@@ -25,6 +25,8 @@ MINIO_BUCKET = os.getenv("MINIO_BUCKET", "user-media")
 
 ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://sm_elasticsearch:9200")
 
+USER_SERVICE_HOST: str = "http://sm_user:8000"
+
 print(
     f"""
 LOADED CONFIG:
